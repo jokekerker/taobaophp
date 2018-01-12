@@ -1,3 +1,4 @@
+<<?php 
 // Create DOM from URL or file
 $html = file_get_html('http://www.google.com/');
 
@@ -8,3 +9,4 @@ foreach($html->find('img') as $element)
 // Find all links 
 foreach($html->find('a') as $element) 
        echo $element->href . '<br>';
+ ?>
