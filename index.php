@@ -4,4 +4,6 @@ echo 'test test';
 
 $html = file_get_html('https://www.google.com/');
 
+echo $html;
+
 ?>
