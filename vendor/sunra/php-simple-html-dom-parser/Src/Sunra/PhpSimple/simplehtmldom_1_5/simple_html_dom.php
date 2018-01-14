@@ -62,7 +62,7 @@ define('HDOM_INFO_TEXT',    4);
 define('HDOM_INFO_INNER',   5);
 define('HDOM_INFO_OUTER',   6);
 define('HDOM_INFO_ENDSPACE',7);
-// define('DEFAULT_TARGET_CHARSET', 'UTF-8');
+define('DEFAULT_TARGET_CHARSET', 'UTF-8');
 define('DEFAULT_BR_TEXT', "\r\n");
 define('DEFAULT_SPAN_TEXT', " ");
 if (!defined('MAX_FILE_SIZE'))
