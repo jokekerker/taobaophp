@@ -3,7 +3,7 @@
 //use Sunra\PhpSimple\HtmlDomParser;
 // /var/www/html/taobao/vendor/sunra/php-simple-html-dom-parser/Src/Sunra/PhpSimple/HtmlDomParser.php
 //header('Content-Type: text/html; charset=utf-8');
-header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/html; charset=GBK');
 // echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
 
 
