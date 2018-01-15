@@ -30,6 +30,7 @@ $html = HtmlDomParser::file_get_html($urlstr);
 //$html->encoding = 'utf-8';
 
 foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
+	alert($element, true);
 	$element->encoding = 'utf-8';
     echo $element . '<br>';
 }
@@ -39,5 +40,11 @@ foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
 //$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
 //$log->addWarning('Foo');
 
+
+function alert($mixed, $die = false)
+{
+echo '<pre>'.print_r($mixed, true).'</pre>';
+if ($die) die(0);
+}
 
 ?>
