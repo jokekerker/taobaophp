@@ -29,9 +29,16 @@ $html = HtmlDomParser::file_get_html($urlstr);
 // $html = HtmlDomParser::str_get_html('<div id="hello">Hello</div><div id="world">World</div>');
 //$html->encoding = 'utf-8';
 
-foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
-	$element->encoding = 'utf-8';
-    echo $element . '<br>';
+// foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
+// 	$element->encoding = 'utf-8';
+//     echo $element . '<br>';
+// }
+
+if ($stream = fopen($urlstr, 'r')) { 
+// print all the page starting at the offset 10 
+	echo stream_get_contents($stream, -1, 10); 
+
+	fclose($stream); 
 }
 //require __DIR__ . 'vendor/autoload.php';
 
