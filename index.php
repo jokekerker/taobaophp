@@ -3,8 +3,8 @@
 //use Sunra\PhpSimple\HtmlDomParser;
 // /var/www/html/taobao/vendor/sunra/php-simple-html-dom-parser/Src/Sunra/PhpSimple/HtmlDomParser.php
 //header('Content-Type: text/html; charset=utf-8');
-//header('Content-Type: text/html; charset=utf-8');
-echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
+header('Content-Type: text/html; charset=utf-8');
+// echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
 
 
 try{
@@ -29,9 +29,10 @@ $html = HtmlDomParser::file_get_html($urlstr);
 // $html = HtmlDomParser::str_get_html('<div id="hello">Hello</div><div id="world">World</div>');
 //$html->encoding = 'utf-8';
 
-foreach($html->find('div[class=tb-item-info tb-clear]') as $element)
-        $element->encoding = 'utf-8';
-        echo $element . '<br>';
+foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
+	$element->encoding = 'utf-8';
+    echo $element . '<br>';
+}
 //require __DIR__ . 'vendor/autoload.php';
 
 //$log = new Monolog\Logger('name');
