@@ -3,6 +3,7 @@
 //use Sunra\PhpSimple\HtmlDomParser;
 // /var/www/html/taobao/vendor/sunra/php-simple-html-dom-parser/Src/Sunra/PhpSimple/HtmlDomParser.php
 //header('Content-Type: text/html; charset=utf-8');
+//header('Content-Type: text/html; charset=utf-8');
 header('Content-Type: text/html; charset=GBK');
 // echo '<meta http-equiv="content-type" content="text/html; charset=utf-8"/>';
 
@@ -29,16 +30,9 @@ $html = HtmlDomParser::file_get_html($urlstr);
 // $html = HtmlDomParser::str_get_html('<div id="hello">Hello</div><div id="world">World</div>');
 //$html->encoding = 'utf-8';
 
-// foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
-// 	$element->encoding = 'utf-8';
-//     echo $element . '<br>';
-// }
-
-if ($stream = fopen($urlstr, 'r')) { 
-// print all the page starting at the offset 10 
-	echo stream_get_contents($stream, -1, 10); 
-
-	fclose($stream); 
+foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
+	$element->encoding = 'utf-8';
+    echo $element . '<br>';
 }
 //require __DIR__ . 'vendor/autoload.php';
 
@@ -46,11 +40,5 @@ if ($stream = fopen($urlstr, 'r')) {
 //$log->pushHandler(new Monolog\Handler\StreamHandler('app.log', Monolog\Logger::WARNING));
 //$log->addWarning('Foo');
 
-
-function alert($mixed, $die = false)
-{
-	echo '<pre>'.print_r($mixed, true).'</pre>';
-	if ($die) die(0);
-}
 
 ?>
