@@ -89,7 +89,7 @@ use Sunra\PhpSimple\HtmlDomParser;
         }
 
         // detail.1688.com
-        foreach ($html->find('div[class=grid-full grid-full-bd]') as $element){
+        foreach ($html->find('div[class=mod-detail-bd]') as $element){
             $element->encoding = 'utf-8';
             echo $element . '<br>';
         }
