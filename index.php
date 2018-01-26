@@ -59,23 +59,29 @@ use Sunra\PhpSimple\HtmlDomParser;
     <input type="text" id="text_first" name="text_first" /> <br />
     <input type="submit" id="submit" />
 </form>
+<div class="row">
+    <div class="col-xs-6">
+    
 
-<?php
+    <?php
 
-if(isset($_GET['text_first'])) {
-    // $urlstr = 'https://item.taobao.com/item.htm?spm=a21wu.241046-global.4691948847.3.7a6cdb29U1yA27&scm=1007.15423.84311.100200300000005&id=561065846240&pvid=74d9c0b8-89a6-4c85-8b4a-235508b49$508b49da2';
-    $urlstr = $_GET['text_first'];
-    $html = HtmlDomParser::file_get_html($urlstr);
+    if(isset($_GET['text_first'])) {
+        // $urlstr = 'https://item.taobao.com/item.htm?spm=a21wu.241046-global.4691948847.3.7a6cdb29U1yA27&scm=1007.15423.84311.100200300000005&id=561065846240&pvid=74d9c0b8-89a6-4c85-8b4a-235508b49$508b49da2';
+        $urlstr = $_GET['text_first'];
+        $html = HtmlDomParser::file_get_html($urlstr);
 
 
-    foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
-        $element->encoding = 'utf-8';
-        echo $element . '<br>';
+        foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
+            $element->encoding = 'utf-8';
+            echo $element . '<br>';
+        }
     }
-}
 
 
-?>
+    ?>
+    </div>
+</div>
+
 
 
 <!-- library
