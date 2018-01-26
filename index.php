@@ -70,11 +70,32 @@ use Sunra\PhpSimple\HtmlDomParser;
         $urlstr = $_GET['text_first'];
         $html = HtmlDomParser::file_get_html($urlstr);
 
-
+        // item.taobao.com
         foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
             $element->encoding = 'utf-8';
             echo $element . '<br>';
         }
+
+        // detail.tmall.com
+        foreach ($html->find('div[class=tm-clear]') as $element){
+            $element->encoding = 'utf-8';
+            echo $element . '<br>';
+        }
+
+        // http://www.alibaba.com
+        foreach ($html->find('div[class=detail-col esite-clearfix]') as $element){
+            $element->encoding = 'utf-8';
+            echo $element . '<br>';
+        }
+
+        // detail.1688.com
+        foreach ($html->find('div[class=grid-full grid-full-bd]') as $element){
+            $element->encoding = 'utf-8';
+            echo $element . '<br>';
+        }
+
+        
+
     }
 
 
