@@ -60,7 +60,7 @@ use Sunra\PhpSimple\HtmlDomParser;
     <input type="submit" id="submit" />
 </form>
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-6 text-center">
     
 
     <?php
