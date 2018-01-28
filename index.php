@@ -66,38 +66,55 @@ use Sunra\PhpSimple\HtmlDomParser;
     <?php
 
     if(isset($_GET['text_first'])) {
-        // $urlstr = 'https://item.taobao.com/item.htm?spm=a21wu.241046-global.4691948847.3.7a6cdb29U1yA27&scm=1007.15423.84311.100200300000005&id=561065846240&pvid=74d9c0b8-89a6-4c85-8b4a-235508b49$508b49da2';
-        $urlstr = $_GET['text_first'];
-        $html = HtmlDomParser::file_get_html($urlstr);
 
-        // item.taobao.com
-        foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
-            $element->encoding = 'utf-8';
-            echo $element . '<br>';
-        }
+        $urlstr = 'https://detail.1688.com/offer/561669583995.html?spm=a261dd.8685230.j2izvcup.6.DFjx1r';
 
-        // detail.tmall.com
-        foreach ($html->find('div[class=tm-clear]') as $element){
-            $element->encoding = 'utf-8';
-            echo $element . '<br>';
-        }
+        $ch = curl_init();
+        // Set options for the cURL
+        curl_setopt($ch, CURLOPT_URL, $urlstr); // target
+        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // provide a user-agent
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // follow any redirects
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // return the result
+        // Execute the cURL fetch
+        $result = curl_exec($ch);
+        // Close the resource
+        curl_close($ch);
+        // Output the results
+        echo $result;
 
-        // http://www.alibaba.com
-        foreach ($html->find('div[class=detail-col esite-clearfix]') as $element){
-            $element->encoding = 'utf-8';
-            echo $element . '<br>';
-        }
-
-        // detail.1688.com
-        foreach ($html->find('div[class=mod-detail-bd]') as $element){
-            $element->encoding = 'utf-8';
-            echo $element . '<br>';
-        }
 
         
+        // $urlstr = $_GET['text_first'];
+        // $html = HtmlDomParser::file_get_html($urlstr);
+        // $html->clear();
 
+        // var_dump($html);
+
+        // // item.taobao.com
+        // foreach ($html->find('div[class=tb-item-info tb-clear]') as $element){
+        //     $element->encoding = 'utf-8';
+        //     echo $element . '<br>';
+        // }
+
+        // // detail.tmall.com
+        // foreach ($html->find('div[class=tm-clear]') as $element){
+        //     $element->encoding = 'utf-8';
+        //     echo $element . '<br>';
+        // }
+
+        // // http://www.alibaba.com
+        // foreach ($html->find('div[class=detail-col esite-clearfix]') as $element){
+        //     $element->encoding = 'utf-8';
+        //     echo $element . '<br>';
+        // }
+
+        // // detail.1688.com
+        // // echo $html;
+        // foreach ($html->find('div[class=grid-full grid-full-bd]') as $element){
+        //     $element->encoding = 'utf-8';
+        //     echo $element . '<br>';
+        // }
     }
-
 
     ?>
     </div>
